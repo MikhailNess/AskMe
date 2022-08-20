@@ -24,7 +24,7 @@
       <p><%= form.password_field :password_confirmation, class: 'form-text-field' %> </p>
     
       <p class="mt-lg"><%= form.label :color_preferences, 'выбирите цвет'%> </p>
-      <p><%= form.text_field :color_preferences, class: 'form-text-field' %> </p>
+      <p><%= form.color_field :color_preferences, class: 'form-text-field' %> </p>
 
       <p class="mt-lg"><%= form.submit 'Сохранить', class: 'button button_main' %>
       <span class="text-sm"> или <%= link_to 'Вернуться', :back %></span></p>
