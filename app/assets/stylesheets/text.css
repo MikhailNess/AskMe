@@ -26,6 +26,12 @@ a, button {
 .text-grey {
   color:#a0a0a0;
 }
+<<<<<<< Updated upstream
+=======
+.text-red {
+    color: #d00000;
+}
+>>>>>>> Stashed changes
 .text-bold {
   font-weight: bold;
 }
