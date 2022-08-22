@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     redirect_to @question, notice: 'Новый вопрос создан!'
     else
       flash[:alert] = "ошибка в создании вопроса"
-      redirect_to @question
+      render :new
     end
     end
 
