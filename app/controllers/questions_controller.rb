@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
     redirect_to question_path(@question), notice: 'Сохранили вопрос!'
     else
       flash[:alert] = "ошибка в редактировании вопроса"
-      redirect_to @question
+      render :edit
     end
     end
 
