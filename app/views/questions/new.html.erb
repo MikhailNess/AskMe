@@ -1,5 +1,9 @@
 <div class="container">
 	<h2 class="title-lg mb">Новый вопрос</h2>
-	<form action="/questions" method="POST"
-	<%= render 'form',question: @question %>
+	<form action="/questions" method="POST"></form>
+	<%= @question.errors.full_messages.first if @question.errors.any? %>
+	<div class="mt">
+		<%= render 'form',question: @question %>
+	</div>
 </div>
+

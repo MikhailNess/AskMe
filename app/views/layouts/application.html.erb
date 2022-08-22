@@ -13,8 +13,11 @@
   <body>
 
   <div class="wrapper">
-		
+		<% if current_user %>
 		<div class="navbar" style="<%="background-color:#{current_user.color_preferences}" %>">
+			<% else %>
+			<div class="navbar">
+				<% end %>
 			<p class="text-sm text-bold"><%= link_to "Ask_me!", root_path %></p>
 			<div>
 				<% if current_user.present? %>
@@ -30,10 +33,11 @@
 		<%if flash[:notice].present? %>
 			<p class="mb mt message message-notice"><%= flash[:notice] %></p>
 			<% elsif flash[:alert].present? %>
-			<p class="mb mt message message-alert"><%= flash[:alert] %></p>
+			<p class="mb mt message message-alert "><%= flash[:alert] %></p>
 		<% end %>
 				
     <%= yield %>
   </div>
+	</div>
   </body>
 </html>

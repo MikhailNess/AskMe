@@ -1,6 +1,7 @@
 <div class="mb-sm">
 	<% hidden_class = "text-hidden" if question.hidden? %>
-	<p class="mb-sm <%= hidden_class %>" > <%= link_to  question.body, question_path(question) %></p>
+	<p class="mb-sm <%= hidden_class %>" >
+		<%= link_to  question.body, question_path(question) %></p>
 	
 <div class="text-sm question-footer">
 	<div class="text-grey">
