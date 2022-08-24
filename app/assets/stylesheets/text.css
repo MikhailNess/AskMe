@@ -1,34 +1,44 @@
 body {
   color: #03071E;
-  font-family: 'Trebuchet MS',sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
 }
+
 a, button {
   color: #DC2F02;
 }
+
 .title-lg {
   font-size: 175%;
 }
+
 .title-md, .title {
   font-size: 150%;
 }
+
 .title-sm {
   font-size: 125%;
 }
+
 .text-sm {
   font-size: 80%;
 }
+
 .text-hidden {
   opacity: 50%;
 }
+
 .text-sm {
   color: #a0a0a0;
 }
+
 .text-grey {
-  color:#a0a0a0;
+  color: #a0a0a0;
 }
+
 .text-red {
-    color: #d00000;
+  color: #d00000;
 }
+
 .text-bold {
   font-weight: bold;
 }

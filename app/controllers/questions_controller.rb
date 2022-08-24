@@ -4,13 +4,12 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     if @question.valid?
-    redirect_to @question, notice: 'Новый вопрос создан!'
+      redirect_to @question, notice: 'Новый вопрос создан!'
     else
       flash[:alert] = "ошибка в создании вопроса"
       render :new
     end
-    end
-
+  end
 
   def show
   end
@@ -23,12 +22,12 @@ class QuestionsController < ApplicationController
   def update
     @question.update(question_params)
     if @question.valid?
-    redirect_to question_path(@question), notice: 'Сохранили вопрос!'
+      redirect_to question_path(@question), notice: 'Сохранили вопрос!'
     else
       flash[:alert] = "ошибка в редактировании вопроса"
       render :edit
     end
-    end
+  end
 
   def destroy
     @question.destroy
@@ -48,6 +47,7 @@ class QuestionsController < ApplicationController
   end
 
   private
+
   def question_params
     params.require(:question).permit(:body, :user_id)
   end

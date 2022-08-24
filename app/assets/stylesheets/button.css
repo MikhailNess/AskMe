@@ -7,9 +7,11 @@
   padding: 8px 13px 7px;
   text-decoration: none;
 }
+
 .button_main {
-  background-color:#9D0208 ;
+  background-color: #9D0208;
 }
+
 .button-yellow {
   background-color: #ffba08;
 }
