@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     if @question.valid?
-      redirect_to @question, notice: 'Новый вопрос создан!'
+      redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
     else
       flash[:alert] = "ошибка в создании вопроса"
       render :new
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   def update
     @question.update(question_params)
     if @question.valid?
-      redirect_to question_path(@question), notice: 'Сохранили вопрос!'
+      redirect_to user_path(@question.user), notice: 'Сохранили вопрос!'
     else
       flash[:alert] = "ошибка в редактировании вопроса"
       render :edit
@@ -30,12 +30,15 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
-    redirect_to questions_path, notice: 'Вопрос удален!'
+    redirect_to user_path(@user), notice: 'Вопрос удален!'
   end
 
   def new
-    @question = Question.new
+    @user = User.find(params[:user_id])
+    @question = Question.new(user: @user)
+
   end
 
   def edit

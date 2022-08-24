@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: true, format: {with: /[a-z+0-9_]/}, length: {maximum: 40}
   validates :color_preferences, presence: true
 
+has_many :questions, dependent: :delete_all
+
   def downcase_nickname
     nickname.downcase!
   end
