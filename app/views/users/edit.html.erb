@@ -25,8 +25,8 @@
 		<% end %>
 	</div>
 	<div class="mt-lg">
-    <%= button_to 'Удалить профиль', user_path(@user), method: :delete,
-																		form: {data: {turbo_confirm: 'Вы точно хотите удалить профиль?'}},
-																		class: 'text-red text-sm' %>
+		<%= button_to 'Удалить профиль', user_path(@user), method: :delete,
+									form: {data: {turbo_confirm: 'Вы точно хотите удалить профиль?'}},
+									class: 'text-red text-sm' %>
 	</div>
 </div>
