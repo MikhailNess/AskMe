@@ -1,8 +1,9 @@
 <div class="container">
   <h2 class="title">Редактирование пользователя</h2>
   <%= render 'form_errors', user: @user %>
+
 <div class="mt">
-	<%= form_with model: @user, data: {turbo: false} do |form| %>
+  <%= form_with model: @user, data: {turbo: false} do |form| %>
   <p><%= form.label :name, 'Ваше Имя' %> </p>
   <p><%= form.text_field :name, class: 'form-text-field' %> </p>
 
