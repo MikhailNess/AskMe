@@ -1,16 +1,16 @@
 <% if question.errors.full_messages.any? %>
-	<div class="mb message message-alert">
-		<ul>
-			<% question.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
+  <div class="mb message message-alert">
+	<ul>
+	  <% question.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	  <% end %>
+	</ul>
+  </div>
 <% end %>
 <%= form_with model: question do |form| %>
-	<%= form.hidden_field :user_id %>
-	<p><%= form.label :body, 'Текст' %></p>
-	<p><%= form.text_area :body, rows: 5, class: 'form-text-area' %></p>
-	<p class="mt-lg"><%= form.submit 'Сохранить', data: {turbo: false}, class: 'button button_main' %></p>
-	<p class="mt-lg"> <%= link_to 'Вернуться', :back %></p>
+  <%= form.hidden_field :user_id %>
+  <p><%= form.label :body, 'Текст' %></p>
+  <p><%= form.text_area :body, rows: 5, class: 'form-text-area' %></p>
+  <p class="mt-lg"><%= form.submit 'Сохранить', data: {turbo: false}, class: 'button button_main' %></p>
+  <p class="mt-lg"> <%= link_to 'Вернуться', :back %></p>
 <% end %>
