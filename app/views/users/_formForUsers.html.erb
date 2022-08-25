@@ -1,21 +1,21 @@
 <div class="mt">
   <%= form_with model: user, data: {turbo: false} do |form| %>
-	<p><%= form.label :name, 'Ваше Имя' %> </p>
-	<p><%= form.text_field :name, class: 'form-text-field' %> </p>
+  <p><%= form.label :name, 'Ваше Имя' %> </p>
+  <p><%= form.text_field :name, class: 'form-text-field' %> </p>
 
-	<p class="mt-md"><%= form.label :nickname, 'Ник на сайте' %> </p>
-	<p><%= form.text_field :nickname, class: 'form-text-field' %> </p>
+  <p class="mt-md"><%= form.label :nickname, 'Ник на сайте' %> </p>
+  <p><%= form.text_field :nickname, class: 'form-text-field' %> </p>
 
-	<p class="mt-md"><%= form.label :email %> </p>
-	<p><%= form.text_field :email, class: 'form-text-field' %> </p>
+  <p class="mt-md"><%= form.label :email %> </p>
+  <p><%= form.text_field :email, class: 'form-text-field' %> </p>
 
-	<p class="mt-md"><%= form.label :password %> </p>
-	<p><%= form.password_field :password, class: 'form-text-field' %> </p>
+  <p class="mt-md"><%= form.label :password %> </p>
+  <p><%= form.password_field :password, class: 'form-text-field' %> </p>
 
-	<p class="mt-md"><%= form.label :password_confirmation %> </p>
-	<p><%= form.password_field :password_confirmation, class: 'form-text-field' %> </p>
+  <p class="mt-md"><%= form.label :password_confirmation %> </p>
+  <p><%= form.password_field :password_confirmation, class: 'form-text-field' %> </p>
 
-	<p class="mt-lg"><%= form.label :color_preferences, 'выбирите цвет вашего хедера' %> </p>
+  <p class="mt-lg"><%= form.label :color_preferences, 'выбирите цвет вашего хедера' %> </p>
   <p><%= form.color_field :color_preferences, class: 'form-text-field' %> </p>
 
   <p class="mt-lg"><%= form.submit 'Зарегистрироваться', class: 'button button_main' %></p>
