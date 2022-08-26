@@ -1,13 +1,13 @@
 <div class="container mt-sm">
-	<h2 class="title-lg">
-		<%= @questions.count %>
-		<%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
-	</h2>
+  <h2 class="title-lg">
+    <%= @questions.count %>
+    <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+  </h2>
 </div>
 
 <% @questions.each do |question| %>
-	<div class="mt-sm container">
-		<%= render question %>
-	</div>
+  <div class="mt-sm container">
+     <%= render question %>
+  </div>
 <% end %>
 </div>

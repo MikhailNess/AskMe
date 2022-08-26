@@ -1,49 +1,56 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
-  end
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :authorize_user, only: %i[edit update destroy]
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
-    else
-      flash.now[:alert] = 'Вы неправильно заполнили поля регистрации'
-      render :new
-    end
-  end
+def new
+  @user = User.new
+end
 
-  def edit
-    @user = User.find(params[:id])
+def create
+  @user = User.new(user_params)
+  if @user.save
+    session[:user_id] = @user.id
+    redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
+  else
+    flash.now[:alert] = 'Вы неправильно заполнили поля регистрации'
+    render :new
   end
+end
 
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to root_path, notice: 'Данные пользователя обновлены'
-    else
-      flash.now[:alert] = 'При попытке сохранить возникли ошибки'
-      render :edit
-    end
+def edit
+end
+
+def update
+  if @user.update(user_params)
+    redirect_to root_path, notice: 'Данные пользователя обновлены'
+  else
+    flash.now[:alert] = 'При попытке сохранить возникли ошибки'
+    render :edit
   end
+end
 
-  def destroy
-    @user = User.find(params[:id])
-    session.delete(:user_id)
-    redirect_to root_path, notice: 'Пользователь удален'
-  end
+def destroy
+  session.delete(:user_id)
+  redirect_to root_path, notice: 'Пользователь удален'
+end
 
-  def show
-    @user = User.find(params[:id])
-    @questions = @user.questions
-    @question = Question.new(user: @user)
-  end
+def show
+  @questions = @user.questions
+  @question = Question.new(user: @user)
+end
 
-  private
+ private
 
-  def user_params
-    params.require(:user).permit(:name, :nickname, :email, :password,
-                                 :password_confirmation, :color_preferences)
-  end
+def authorize_user
+  redirect_with_alert unless current_user == @user
+end
+
+def set_user
+  @user = User.find(params[:id])
+end
+
+def user_params
+  params.require(:user).permit(:name, :nickname, :email, :password,
+                        :password_confirmation, :color_preferences)
+end
 end
