@@ -5,7 +5,6 @@
   <p class="mb mb-lg">
   <%= link_to fa_icon('pencil'), edit_user_path(@user) %></p>
 <% end %>
-
   <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
 </div>
 
@@ -14,7 +13,7 @@
 <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
                               class: 'button button-yellow' %>
 
-  <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
+<%= link_to "Спроси меня", new_question_path(user_id: @user.id),
                                  class: 'button button-yellow' %>
 
 </div>
@@ -26,13 +25,8 @@
 
 <div class="container mt-sm">
   <h2 class="title-lg">
-
     <%= @questions.count %>
 	  <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
-
-  <%= @questions.count %>
-    <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
-
   </h2>
 </div>
 

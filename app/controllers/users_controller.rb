@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_user, only: %i[show edit update destroy]
-  before_action :authorize_user, only: %i[edit update destroy]
+before_action :set_user, only: %i[show edit update destroy]
+before_action :authorize_user, only: %i[edit update destroy]
 
 def new
   @user = User.new
@@ -19,9 +18,11 @@ def create
 end
 
 def edit
+  set_user
 end
 
 def update
+  set_user
   if @user.update(user_params)
     redirect_to root_path, notice: 'Данные пользователя обновлены'
   else
@@ -31,57 +32,17 @@ def update
 end
 
 def destroy
-  session.delete(:user_id)
-  redirect_to root_path, notice: 'Пользователь удален'
-=======
-def new
-  @user = User.new
-end
-
-def create
-  @user = User.new(user_params)
-  if @user.save
-    session[:user_id] = @user.id
-    redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
-  else
-    flash.now[:alert] = 'Вы неправильно заполнили поля регистрации'
-    render :new
-  end
-end
-
-def edit
-  @user = User.find(params[:id])
-end
-
-def update
-  @user = User.find(params[:id])
-  if @user.update(user_params)
-    redirect_to root_path, notice: 'Данные пользователя обновлены'
-  else
-    flash.now[:alert] = 'При попытке сохранить возникли ошибки'
-    render :edit
-  end
-end
-
-def destroy
-  @user = User.find(params[:id])
+  set_user
   session.delete(:user_id)
   redirect_to root_path, notice: 'Пользователь удален'
 end
 
 def show
-  @user = User.find(params[:id])
-  @questions = @user.questions
-  @question = Question.new(user: @user)
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
-end
-
-def show
+  set_user
   @questions = @user.questions
   @question = Question.new(user: @user)
 end
 
-<<<<<<< HEAD
  private
 
 def authorize_user
@@ -92,8 +53,6 @@ def set_user
   @user = User.find(params[:id])
 end
 
-=======
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 def user_params
   params.require(:user).permit(:name, :nickname, :email, :password,
                         :password_confirmation, :color_preferences)

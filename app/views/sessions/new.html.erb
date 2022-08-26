@@ -1,7 +1,6 @@
 <div class="container">
-<<<<<<< HEAD
   <h2 class="title">Вход</h2>
-
+  <p class="mt">Введите свой email и пароль для входа на сайт</p>
   <div class="mt-lg">
     <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
       <p><%= form.label :email %></p>
@@ -13,7 +12,6 @@
       <p class="mt-lg"><%= form.submit 'Войти', class: 'button button_main' %></p>
     <% end %>
   </div>
-=======
 <h2 class="title">Вход</h2>
 <p class="mt">Введите свой email и пароль для входа на сайт</p>
 
@@ -28,5 +26,4 @@
   <p class="mt-lg"><%= form.submit 'Войти', class: 'button button_main' %></p>
   <% end %>
 </div>
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 </div>
