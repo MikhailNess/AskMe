@@ -38,7 +38,7 @@ def destroy
 end
 
 def show
-  set_user
+  @user = User.find(params[:id])
   @questions = @user.questions
   @question = Question.new(user: @user)
 end
