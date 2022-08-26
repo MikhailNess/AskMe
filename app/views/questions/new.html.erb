@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
 <h2 class="title-lg mb-sm">Новый вопрос</h2>
 <p class="mb">для <%= link_to "@#{@user.nickname}", user_path(@question.user) %></p>
 <form action="/questions" method="POST"></form>
@@ -6,4 +7,12 @@
 <div class="mt">
   <%= render 'form', question: @question %>
 </div>
+=======
+  <h2 class="title-lg mb-sm">Новый вопрос</h2>
+  <p class="mb">для <%= link_to "@#{@user.nickname}", user_path(@question.user) %></p>
+  <form action="/questions" method="POST"></form>
+  <div class="mt">
+    <%= render 'form', question: @question %>
+  </div>
+>>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 </div>

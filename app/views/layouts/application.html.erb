@@ -18,6 +18,7 @@
   <% else %>
     <div class="navbar">
   <% end %>
+<<<<<<< HEAD
   <p class="text-sm text-bold"><%= link_to "Ask_me!", root_path %></p>
 
   <div>
@@ -36,6 +37,27 @@
   <% elsif flash[:alert].present? %>
     <p class="mb mt message message-alert "><%= flash[:alert] %></p>
   <% end %>
+=======
+
+<p class="text-sm text-bold"><%= link_to "Ask_me!", root_path %></p>
+<div>
+  <% if current_user.present? %>
+    <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm' %>
+    <%= link_to 'Редактировать профиль', edit_user_path(current_user), class: 'text-sm text-bold mr-sm' %>
+    <%= button_to 'Выйти', session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Регистрация ', new_user_path, class: 'button button-yellow mr-sm' %>
+    <%= link_to ' Вход', new_session_path, class: 'button button-yellow' %>
+  <% end %>
+</div>
+</div>
+
+<% if flash[:notice].present? %>
+  <p class="mb mt message message-notice"><%= flash[:notice] %></p>
+<% elsif flash[:alert].present? %>
+  <p class="mb mt message message-alert "><%= flash[:alert] %></p>
+<% end %>
+>>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 
 <%= yield %>
 </div>

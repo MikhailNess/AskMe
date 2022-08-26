@@ -1,7 +1,12 @@
 <div class="container">
   <h2 class="title">Редактирование пользователя</h2>
+<<<<<<< HEAD
 
 <%= render 'form_errors', user: @user %>
+=======
+  <%= render 'form_errors', user: @user %>
+
+>>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 <div class="mt">
   <%= form_with model: @user, data: {turbo: false} do |form| %>
   <p><%= form.label :name, 'Ваше Имя' %> </p>
@@ -27,8 +32,14 @@
 </div>
 
 <div class="mt-lg">
+<<<<<<< HEAD
   <%= button_to 'Удалить профиль', user_path(@user), method: :delete,
     form: {data: {turbo_confirm: 'Вы точно хотите удалить профиль?'}},
                                          class: 'text-red text-sm' %>
+=======
+<%= button_to 'Удалить профиль', user_path(@user), method: :delete,
+				  form: {data: {turbo_confirm: 'Вы точно хотите удалить профиль?'}},
+				  class: 'text-red text-sm' %>
+>>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
 </div>
 </div>
