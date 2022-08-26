@@ -14,7 +14,7 @@
   <% hidden_class = "text-hidden" if question.hidden? %>
   <p class="mb-sm <%= hidden_class %>"></p>
 
-	<div class="text-sm question-footer">
+  <div class="text-sm question-footer">
     <div class="text-grey"><%= l(question.created_at, format: :short) %></div>
     <div>
       <% edit_icon = (question.answer.present? ? 'pencil' : 'reply') %>
