@@ -1,23 +1,22 @@
 <div class="user-box">
   <h2 class="title-lg mt-lg"><%= @user.name %> </h2>
-<<<<<<< HEAD
+
 <% if current_user == @user %>
   <p class="mb mb-lg">
   <%= link_to fa_icon('pencil'), edit_user_path(@user) %></p>
 <% end %>
-=======
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
+
   <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
 </div>
 
 <div class="container">
-<<<<<<< HEAD
+
 <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
                               class: 'button button-yellow' %>
-=======
+
   <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
                                  class: 'button button-yellow' %>
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
+
 </div>
 
 <div class="container">
@@ -27,13 +26,13 @@
 
 <div class="container mt-sm">
   <h2 class="title-lg">
-<<<<<<< HEAD
+
     <%= @questions.count %>
 	  <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
-=======
+
   <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
->>>>>>> aab2ff0d0be44cf9a6fa467667fcaba97d327a37
+
   </h2>
 </div>
 
