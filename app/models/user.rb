@@ -3,11 +3,11 @@ class User < ApplicationRecord
   has_many :questions, dependent: :delete_all
 
   before_validation :downcase_nickname
-  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true, uniqueness: true
-  validates :nickname, uniqueness: true, format: {with: /\A[a-zA-Z0-9]+\Z/}, length: {maximum: 40}
-  validates :color_preferences, presence: true
+  validates :email,format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
+  validates :nickname, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]+\Z/ }, length: { maximum: 40 }
+  validates :color_preferences, presence: true, format: { with: /\A#\w{6}/i }
 
-private 
+  private
 
   def downcase_nickname
     nickname&.downcase!
