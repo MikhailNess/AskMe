@@ -7,7 +7,7 @@
 <% end %>
   <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
 </div>
-
+<% if @questions.any? %>
 <div class="container">
 
 <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
@@ -30,5 +30,8 @@
   <div class="mt-sm container">
     <%= render question %>
   </div>
+<% end %>
+<% else %>
+<%= render 'no_questions', user: @user %>
 <% end %>
 </div>

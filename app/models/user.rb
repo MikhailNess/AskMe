@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :questions, dependent: :delete_all
 
-  before_validation :downcase_nickname
+  before_validation :downcase_attributes
   validates :email,
             format: {
               with: URI::MailTo::EMAIL_REGEXP
@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   private
 
-  def downcase_nickname
+  def downcase_attributes
     nickname&.downcase!
     color_preferences&.downcase!
     email&.downcase!
