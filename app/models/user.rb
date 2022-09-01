@@ -20,6 +20,9 @@ class User < ApplicationRecord
             allow_nil: true,
             format: { with: /\A#(\h{3}){1,2}\z/i }
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'robohash')
+
   private
 
   def downcase_attributes
