@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :color_preferences,
             presence: true,
             allow_nil: true,
-            format: { with: /\A#\w{6}/i }
+            format: { with: /\A#(\h{3}){1,2}\z/i }
 
   private
 
