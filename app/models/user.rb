@@ -8,25 +8,17 @@ class User < ApplicationRecord
 
   before_validation :downcase_attributes
   validates :email,
-            format: {
-              with: URI::MailTo::EMAIL_REGEXP
-            },
+            format: { with: URI::MailTo::EMAIL_REGEXP },
             presence: true,
             uniqueness: true
   validates :nickname,
             uniqueness: true,
-            format: {
-              with: /\A[a-zA-Z0-9_]+\Z/
-            },
-            length: {
-              maximum: 40
-            }
+            format: { with: /\A\w+\z/ },
+            length: { maximum: 40 }
   validates :color_preferences,
             presence: true,
             allow_nil: true,
-            format: {
-              with: /\A#\w{6}/i
-            }
+            format: { with: /\A#\w{6}/i }
 
   private
 
