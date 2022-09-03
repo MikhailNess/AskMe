@@ -7,6 +7,7 @@ class User < ApplicationRecord
            dependent: :nullify
 
   before_validation :downcase_attributes
+
   validates :name, presence: true
   validates :email,
             format: { with: URI::MailTo::EMAIL_REGEXP },
@@ -24,6 +25,9 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: 'robohash')
 
+  def to_param
+    nickname
+  end
   private
 
   def downcase_attributes
