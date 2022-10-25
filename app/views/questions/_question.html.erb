@@ -2,13 +2,13 @@
   Вопрос задал <%= question_author(question)%>
 </div>
 
-<div class="mb-sm">
-  <%= simple_format(h(question.body)) %>
+<div class="mb-sm question-text">
+  <%= sanitize text_with_hashtag_link(question.body) -%>
 </div>
 
 <% if question.answer.present? %>
-  <div class="mb-sm text-dark-red">
-    <%= question.answer %>
+  <div class="mb-sm text-dark-red question-text">
+  <%= sanitize text_with_hashtag_link(question.answer) %>
   </div>
 <% end %>
 

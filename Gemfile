@@ -15,6 +15,7 @@ gem 'ruby-lsp', '~> 0.3.0', :group => :development
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'where_exists', '~> 2.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
@@ -34,3 +35,5 @@ end
 group :production do
   gem 'pg'
 end
+
+
